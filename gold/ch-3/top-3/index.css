@@ -1,0 +1,66 @@
+body {
+  height: 200vh;
+}
+
+.content {
+  width: 100px;
+  height: 2rem;
+  background-color: green;
+}
+
+.box-model {
+  margin: 10px;
+  border: 8px solid green;
+  padding: 6px;
+}
+
+.static {
+  position: static;
+  border: 3px solid #73ad21;
+}
+
+.relative {
+  position: relative;
+  left: 30px;
+  border: 3px solid #73ad21;
+}
+
+.relative-absolute {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 3px solid #73ad21;
+}
+
+.absolute {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  border: 3px solid #73ad21;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid #73ad21;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: green;
+  border: 2px solid #4caf50;
+}
+
+img {
+  float: right;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
