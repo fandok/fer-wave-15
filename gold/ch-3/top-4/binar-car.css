@@ -4,13 +4,12 @@ body {
 
 .sewaContainer {
   background-color: #0d28a6;
-  margin-left: 16px;
-  margin-right: 16px;
   text-align: center;
   color: #fff;
   padding: 64px 58px;
   border-radius: 13px;
   font-weight: 700;
+  margin: 0 16px 104px;
 }
 
 .sewaTitle {
