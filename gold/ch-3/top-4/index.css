@@ -1,12 +1,12 @@
 /* Media Query */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-height: 600px) {
   body {
     background-color: lightblue;
   }
 }
 
-/* @media (min-width: 576px) {
+@media (min-width: 576px) {
   .text {
     font-size: 30px;
   }
@@ -28,16 +28,19 @@
   .text {
     font-size: 100px;
   }
-} */
+}
 
 /* Font Size */
+html {
+  font-size: 20px;
+}
 
-/* div {
+div {
   font-size: 24px;
 }
 
 div > strong {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 div > small {
@@ -47,4 +50,4 @@ div > small {
 div > strong,
 div > small {
   display: block;
-} */
+}

@@ -1,0 +1,57 @@
+body {
+  font-family: Arial;
+}
+
+.sewaContainer {
+  background-color: #0d28a6;
+  margin-left: 16px;
+  margin-right: 16px;
+  text-align: center;
+  color: #fff;
+  padding: 64px 58px;
+  border-radius: 13px;
+  font-weight: 700;
+}
+
+.sewaTitle {
+  font-size: 24px;
+  line-height: 36px;
+  margin-bottom: 16px;
+}
+
+.sewaDesc {
+  font-size: 14px;
+  line-height: 20px;
+  margin-bottom: 32px;
+}
+
+.sewaButton {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #fff;
+  padding: 8px 12px;
+  background-color: #5cb85f;
+  border-radius: 2px;
+  border: none;
+}
+
+@media only screen and (min-width: 1200px) {
+  .sewaContainer {
+    margin-left: 136px;
+    margin-right: 136px;
+    padding: 64px 270px;
+  }
+
+  .sewaTitle {
+    font-size: 36px;
+    line-height: 54px;
+  }
+
+  .sewaDesc {
+    margin-bottom: 52px;
+  }
+
+  .sewaButton {
+  }
+}
