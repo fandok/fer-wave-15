@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000;
+}
+
+.card {
+  padding: 24px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: 1px solid #d0d0d0;
+}
+
+.card-icon {
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.card-desc {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.footer {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.contact-info {
+  font-weight: 700;
+}
+
+.social-media {
+  font-weight: 700;
+}
+
+.copyright {
+  font-weight: 700;
+}
+
+.block {
+  width: 100px;
+  height: 34px;
+  background-color: #0d28a6;
+}
