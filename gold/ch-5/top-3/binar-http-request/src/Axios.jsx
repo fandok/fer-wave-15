@@ -1,6 +1,8 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Container } from "reactstrap";
+
+const URL = "https://jsonplaceholder.typicode.com/todos";
 
 const Post = ({ title }) => {
   return <h5>{title}</h5>;
@@ -11,12 +13,13 @@ const Home = () => {
 
   useEffect(() => {
     // axios example
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((response) => {
+    axios.get(URL).then((response) => {
+      console.log(response);
       setPosts(response.data);
     });
 
     // fetch example
-    // fetch("https://jsonplaceholder.typicode.com/todos")
+    // fetch(URL)
     //   .then((response) => response.json())
     //   .then((result) => setPosts(result));
   }, []);
@@ -24,7 +27,10 @@ const Home = () => {
   return (
     <Container className="p-4">
       {posts.map((post) => (
-        <Post key={post.id} title={post.title} />
+        <Fragment key={post.id}>
+          <h1>{post.id}</h1>
+          <Post title={post.title} />
+        </Fragment>
       ))}
     </Container>
   );

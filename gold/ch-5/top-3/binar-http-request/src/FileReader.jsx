@@ -14,6 +14,7 @@ function App() {
     }
     setFile(file);
   };
+
   useEffect(() => {
     let fileReader,
       isCancel = false;

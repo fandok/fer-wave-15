@@ -6,6 +6,7 @@ export default function UseState() {
   const handleChange = () => {
     setState("t-rex");
   };
+
   return (
     <div>
       <h1>Hello Devsaurus</h1>
