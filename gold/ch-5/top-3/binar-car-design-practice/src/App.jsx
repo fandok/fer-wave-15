@@ -4,26 +4,22 @@ import { Link } from "react-router-dom";
 import { Button } from "reactstrap";
 import { HEADERS } from "./constants";
 import { formatCurrency } from "./helpers";
+import styles from "./App.module.css";
 
 const PLACEHOLDER_URL = "https://fakeimg.pl/270x160";
 const LIST_URL = "https://api-car-rental.binaracademy.org/admin/v2/car";
 
-const Car = ({ car }) => (
-  <div key={car.id}>
-    <img
-      width={270}
-      height={160}
-      src={car.image || PLACEHOLDER_URL}
-      alt={car.name}
-    />
-    <div>{car.name}</div>
-    <div>{formatCurrency(car.price)} / hari</div>
-    <div>
+const Car = ({ id, name, image, price }) => (
+  <div key={id}>
+    <img width={270} height={160} src={image || PLACEHOLDER_URL} alt={name} />
+    <div>{name}</div>
+    <div>{formatCurrency(price)} / hari</div>
+    <div className={styles.carBackground}>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua.{" "}
     </div>
     <Button>
-      <Link to={`detail/${car.id}`}>Pilih Mobil</Link>
+      <Link to={`detail/${id}`}>Pilih Mobil</Link>
     </Button>
   </div>
 );
@@ -69,7 +65,7 @@ const App = () => {
           <>
             <Car car={list[2]} />
             {list.map((car) => (
-              <Car key={car.id} car={car} />
+              <Car key={car.id} {...car} />
             ))}
           </>
         ) : (

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { HEADERS } from "./constants";
 import { formatCurrency } from "./helpers";
+import styles from "./Detail.module.css";
 
 const DETAIL_URL = "https://api-car-rental.binaracademy.org/admin/car";
 
@@ -23,7 +24,7 @@ const Detail = () => {
   console.log(data);
 
   return (
-    <div>
+    <div className={styles.Detail}>
       Hello World <Link to="/">balik</Link>
       <img width={270} height={160} src={data.image} alt={data.name} />
       <div>{data.name}</div>
