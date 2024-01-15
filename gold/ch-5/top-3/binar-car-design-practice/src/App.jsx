@@ -5,6 +5,7 @@ import { Button } from "reactstrap";
 import { HEADERS } from "./constants";
 import { formatCurrency } from "./helpers";
 import styles from "./App.module.css";
+import Input from "./Input";
 
 const PLACEHOLDER_URL = "https://fakeimg.pl/270x160";
 const LIST_URL = "https://api-car-rental.binaracademy.org/admin/v2/car";
@@ -51,7 +52,7 @@ const App = () => {
 
   return (
     <>
-      <input
+      <Input
         onChange={(e) => {
           setValue(e.target.value);
         }}
