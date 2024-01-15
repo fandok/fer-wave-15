@@ -1,6 +1,6 @@
 const Input = (props) => {
   return (
-    <div style={{ backgroundColor: "green" }}>
+    <div>
       <input {...props} />
     </div>
   );

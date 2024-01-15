@@ -30,13 +30,16 @@ const App = () => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(LIST_URL, {
-        headers: HEADERS,
-      })
-      .then((response) => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(LIST_URL, { headers: HEADERS });
         setList(response.data.cars);
-      });
+      } catch (e) {
+        console.error("error nih");
+      }
+    };
+
+    fetchData();
   }, []);
 
   const handleSubmit = () => {
