@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Membuat element di DOM</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <p>teks atas</p>
+    <p>teks bawah</p>
+    <script>
+      // membuat element h1
+      var judul = document.createElement("h1");
+
+      // mengist content etement
+      judul.textContent = "Belajar JavaScript";
+
+      // menambahkan element ke datam tag body
+      //   document.body.append(judul);
+
+      document.body.insertBefore(judul, document.getElementsByTagName("p")[1]);
+    </script>
+  </body>
+</html>

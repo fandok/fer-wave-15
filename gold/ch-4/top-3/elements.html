@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mengakses lebih dari satu elemen di DOM</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <p class="paragraf">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat
+      recusandae qui ullam eaque cumque ea fugit, debitis commodi ipsum illo
+      dolorum consequatur sed laudantium suscipit quis magni, maiores in?
+    </p>
+    <p class="paragraf">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat
+      recusandae qui ullam eaque cumque ea fugit, debitis commodi ipsum illo
+      dolorum consequatur sed laudantium suscipit quis magni, maiores in?
+    </p>
+    <p class="paragraf">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo quaerat
+      recusandae qui ullam eaque cumque ea fugit, debitis commodi ipsum illo
+      dolorum consequatur sed laudantium suscipit quis magni, maiores in?
+    </p>
+    <script>
+      var paragraf = document.getElementsByClassName("paragraf");
+      //   console.log(paragraf);
+      setInterval(() => {
+        paragraf[0].style.color = "red";
+        paragraf[1].style.color = "green";
+        paragraf[2].style.color = "blue";
+
+        setTimeout(() => {
+          paragraf[0].style.color = "black";
+          paragraf[1].style.color = "black";
+          paragraf[2].style.color = "black";
+        }, 500);
+      }, 1000);
+    </script>
+  </body>
+</html>
