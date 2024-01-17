@@ -1,14 +1,35 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import styles from "./App.module.css";
 import axios from "axios";
+import { Link, useLocation } from "react-router-dom";
 
 function App() {
   const [count, setCount] = useState(0);
   const [input, setInput] = useState("");
   const [price, setPrice] = useState(0);
   const [cars, setCars] = useState([]);
+
+  const { pathname, hash, key } = useLocation();
+
+  useEffect(() => {
+    // if not a hash link, scroll to top
+    if (hash === "") {
+      window.scrollTo(0, 0);
+    }
+    // else scroll to id
+    else {
+      setTimeout(() => {
+        const id = hash.replace("#", "");
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }, 0);
+    }
+  }, [pathname, hash, key]); // do this on route change
 
   const handleClick = async () => {
     try {
@@ -38,25 +59,48 @@ function App() {
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img
+            src={reactLogo}
+            className={`logo react ${styles.reactLogo}`}
+            alt="React logo"
+          />
         </a>
       </div>
       <h1>Vite + React</h1>
-      <input value={input} onChange={(e) => setInput(e.target.value)} />
+      <input
+        value={input}
+        onChange={(e) => {
+          setInput(e.target.value);
+        }}
+      />
       <input
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         placeholder="minPrice"
         type="number"
       />
-      <select onChange />
       <button onClick={handleClick}>Search</button>
       <div>
         {cars.map((car) => (
-          <span key={car.id}>{car.name} || </span>
+          <Link
+            style={{
+              cursor: "pointer",
+              color: "initial",
+            }}
+            key={car.id}
+            to={`/detail/${car.id}`}
+          >
+            <span
+              onClick={() => {
+                console.log(car.id);
+              }}
+            >
+              {car.name} ||{" "}
+            </span>
+          </Link>
         ))}
       </div>
-      <div className="card">
+      <div style={{ height: "100vh" }} className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -64,7 +108,7 @@ function App() {
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">
+      <p id="docs" className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
     </>
