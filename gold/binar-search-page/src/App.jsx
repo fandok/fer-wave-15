@@ -4,7 +4,13 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import styles from "./App.module.css";
 import axios from "axios";
-import { Link, useLocation } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,6 +19,12 @@ function App() {
   const [cars, setCars] = useState([]);
 
   const { pathname, hash, key } = useLocation();
+
+  const navigate = useNavigate();
+
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get("name"));
+  console.log(searchParams.get("price"));
 
   useEffect(() => {
     // if not a hash link, scroll to top
@@ -32,28 +44,33 @@ function App() {
   }, [pathname, hash, key]); // do this on route change
 
   const handleClick = async () => {
-    try {
-      const response = await axios.get(
-        "https://api-car-rental.binaracademy.org/admin/v2/car",
-        {
-          headers: {
-            access_token:
-              "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc",
-          },
-          params: {
-            name: input,
-            minPrice: price,
-          },
-        }
-      );
-      setCars(response.data.cars);
-    } catch (e) {
-      console.error("Failed to fetch");
-    }
+    const queryString = new URLSearchParams({ name: input, price }).toString();
+    navigate(`/detail?${queryString}`);
+    // try {
+    //   const response = await axios.get(
+    //     "https://api-car-rental.binaracademy.org/admin/v2/car",
+    //     {
+    //       headers: {
+    //         access_token:
+    //           "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGJjci5pbyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY2NTI0MjUwOX0.ZTx8L1MqJ4Az8KzoeYU2S614EQPnqk6Owv03PUSnkzc",
+    //       },
+    //       params: {
+    //         name: input,
+    //         minPrice: price,
+    //       },
+    //     }
+    //   );
+    //   setCars(response.data.cars);
+    // } catch (e) {
+    //   console.error("Failed to fetch");
+    // }
   };
 
   return (
     <>
+      <Helmet>
+        <title>Test halaman app</title>
+      </Helmet>
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

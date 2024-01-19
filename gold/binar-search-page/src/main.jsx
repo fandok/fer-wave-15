@@ -1,5 +1,5 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
+import { HelmetProvider } from "react-helmet-async";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import Detail from "./Detail";
@@ -11,7 +11,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+  <HelmetProvider>
     <RouterProvider router={router} />
-  </React.StrictMode>
+  </HelmetProvider>
 );
